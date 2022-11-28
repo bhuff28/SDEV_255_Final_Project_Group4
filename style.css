@@ -1,0 +1,72 @@
+/* Style sheet for SDEV255 Final Project
+  Jivy Tek website */
+
+/*imports for fonts */
+#wrapper {
+    background-color: rgb(207, 112, 57);
+}
+
+#header {
+    font-size: 2em;
+
+    background-color: antiquewhite;
+
+}
+
+#schoolname {
+    color: blueviolet;
+}
+
+.navbar {
+    background-color: none;
+    max-width: max-content;
+    align-items: center;
+    margin: 2px;
+    text-align: center;
+    height: auto;
+    position: absolute;
+
+}
+
+
+
+nav p {
+    height: 2em;
+    margin: 10px 10px 10px 10px;
+    border-radius: 5px;
+    background-color: antiquewhite;
+    padding-top: 4px;
+
+
+}
+
+.login {
+    margin-left: 120px;
+    border: 2px;
+    border-color: black;
+}
+
+#foot {
+    margin-top: 80px;
+    margin-left: 120px;
+    text-align: center;
+}
+
+/* media query for 1280, flex image */
+@media screen and (min-width: 1280px) {
+    #wrapper {
+        width: 1180px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    header h1 {
+        margin-left: 300px;
+    }
+
+    .login {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+}
