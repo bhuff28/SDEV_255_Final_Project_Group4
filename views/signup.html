@@ -1,0 +1,89 @@
+<!--SDEV255 Final Project-->
+<!-- display all of the courses created on this page -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jivy Tek | Login</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div id="wrapper">
+        <header id="header">
+            <h1 id="schoolname">Jivy Tek</h1>
+            <h2>Login</h2>
+            <!--<div id="search">
+                <input id="searchbar" type="search" placeholder="Search" aria-label="Search">
+                <button id="search-btn" type="submit">Search</button>
+            </div>-->
+        </header>
+
+        <div class="navbar">
+            <nav>
+                <h3>Home</h3>
+                <p><a href="/">some button</a></p>
+                <p><a href="/">another one</a></p>
+                <p><a href="/">and another</a></p>
+            </nav>
+        </div>
+        <form action="">
+            <h2>Sign up</h2>
+            <label for="email">Email</label>
+            <input type="text" name="email" required />
+            <div class="email error"></div>
+
+            <label for="password">Password</label>
+            <input type="password" name="password" required />
+            <div class="password error"></div>
+            <button>Sign up</button>
+        </form>
+
+        <script>
+            const form = document.querySelector('form');
+            const emailError = document.querySelector('.email.error');
+            const passwordError = document.querySelector('.password.error');
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                // reset errors
+                emailError.textContent = '';
+                passwordError.textContent = '';
+
+                //get values
+                const email = form.email.value;
+                const password = form.password.value;
+
+                try {
+                    const res = await fetch('/signup', {
+                        method: 'POST',
+                        body: JSON.stringify({ email, password }),
+                        headers: { 'Content-Type': 'application/json' }
+                    });
+                    const data = await res.json();
+                    console.log(data);
+                    if (data.errors) {
+                        emailError.textContent = data.errors.email;
+                        passwordError.textContent = data.errors.password;
+                    }
+                    //sends to home page
+                    if (data.user) {
+                        location.assign('/');
+                    }
+                }
+                catch (err) {
+                    console.log(err);
+
+                }
+            });
+        </script>
+
+        <footer id="foot">&copy; A JoBaRy Product, 2022.</footer>
+    </div>
+</body>
+
+</html>
