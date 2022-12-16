@@ -13,9 +13,12 @@ router.get('/logout', authController.logout_get);
 
 //home  courses moreController
 router.get('/home', moreController.home_get);
+router.get('/student', moreController.student_get);
 router.get('/view_courses', moreController.view_courses_get);
 //teacher stuff
-
+router.get('/teacher', moreController.teacher_get);
+router.get('/edit_courses', moreController.edit_courses_get);
+router.post('/edit_courses', moreController.edit_courses_post);
 //student stuff
 
 

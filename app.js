@@ -1,11 +1,6 @@
 //JavaScript for SDEV255 Final Project
 //School website (Jivy Tek)
-// const express = require('express');
-// const { ObjectId } = require('mongodb');
-// const { connectToDb, getDb } = require('./db');
 
-
-// const app = express();
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -34,5 +29,5 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 // routes
 app.get('*', checkUser);
 app.get('/', (req, res) => res.render('home'));
-app.get('/view_courses', requireAuth, (req, res) => res.render('view_courses'));
+//app.get('/view_courses', requireAuth, (req, res) => res.render('view_courses'));
 app.use(authRoutes);
