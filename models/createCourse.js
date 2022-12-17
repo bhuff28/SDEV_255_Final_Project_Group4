@@ -4,7 +4,7 @@ const Course = require("./Course")
 async function createCourse(){
     const course255 = await Course.create({
         name:"English 101",
-        description:"Credits: 3"
+        description:"Credits: 4"
     })
     await course.save()
 
